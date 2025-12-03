@@ -198,13 +198,13 @@ a:hover { text-decoration: underline; }
 /* === 電話番号アイコン (ここまで) === */
 
 .hero-form-btn {
-  background: linear-gradient(135deg, #f26666 0%, #ff7878 100%);
+  background: linear-gradient(135deg, #06C755 0%, #06C755 100%);
   color: #fff;
   font-size: 16px;
   padding: 14px 24px;
   border-radius: 999px;
   box-shadow: 0 6px 18px rgba(13, 110, 253, 0.25);
-  font-weight: 900;
+  font-weight: bold;
   letter-spacing: 0.06em;
 }
 .hero-form-btn:hover {
@@ -394,7 +394,7 @@ a:hover { text-decoration: underline; }
 
 
 /* Footer */
-.site-footer { background: #0b1b2a; color: #c9d6e2; padding: 32px 0; margin-top: 0px; }
+.site-footer { background: #0b1b2a; color: #c9d6e2; padding: 20px 0; margin-top: 0px; }
 .footer-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; align-items: center; }
 .site-footer .brand .logo { color: #fff; }
 .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -792,25 +792,92 @@ a:hover { text-decoration: underline; }
 
 /* ステップのコンテンツ (画像 + テキスト) */
 .flow-step-content {
- display: grid;
- grid-template-columns: 2fr 3fr; /* 画像とテキストの比率 */
- gap: 24px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ padding: 20px 0;
+}
+
+.flow-step-text {
+ width: 100%;
+ text-align: center;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+
+.flow-step-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.flow-step-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  padding: 40px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(13, 110, 253, 0.15);
+  border: 2px solid #90caf9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flow-step-item:hover .flow-step-icon-wrapper {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(13, 110, 253, 0.25);
+}
+
+.flow-step-icon {
+  font-size: 80px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.flow-step-icon-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0d6efd;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.flow-step-text p,
+.flow-step-content p {
+ margin: 0;
+ font-size: 18px;
+ font-weight: 500;
+ color: #14202a;
+ line-height: 1.8;
+ text-align: center;
  align-items: center;
 }
 
-.flow-step-visual img {
- width: 100%;
- border-radius: 12px;
- box-shadow: 0 4px 12px rgba(20, 32, 42, .06);
- border: 1px solid #eef2f6;
- display: block;
-}
-
-.flow-step-text p {
- margin: 0;
- font-size: 15px;
- color: #2b3a48;
+/* process-flow内のすべてのpタグを見やすく */
+.process-flow p {
+ font-size: 18px;
+ font-weight: 500;
+ color: #14202a;
  line-height: 1.8;
+ letter-spacing: 0.02em;
 }
 
 /* STEP1専用: お問い合わせ情報 */
@@ -935,7 +1002,7 @@ a:hover { text-decoration: underline; }
     repeating-linear-gradient(60deg, rgba(255,255,255,0.1) 0px, rgba(255,255,255,0.1) 1px, transparent 1px, transparent 8px),
     repeating-linear-gradient(-60deg, rgba(255,255,255,0.1) 0px, rgba(255,255,255,0.1) 1px, transparent 1px, transparent 8px);
   background-size: 20px 20px;
-  padding: 48px 0 64px;
+  padding: 32px 0 40px;
   position: relative;
   overflow: hidden;
 }
@@ -943,50 +1010,69 @@ a:hover { text-decoration: underline; }
 .footer-cta-inner {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 無料サービスバブル */
 .free-service-bubbles {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: center;
-  gap: 20px;
+  align-items: stretch;
+  gap: 10px;
   margin-bottom: 32px;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
 .bubble {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 50px;
-  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 16px;
+  padding: 20px 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  min-width: 140px;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  max-width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.bubble:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .bubble-icon {
-  font-size: 32px;
-  margin-bottom: 8px;
+  font-size: 36px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .bubble-text {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   color: #14202a;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
 }
 
 .bubble-price {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 900;
   color: #e53935;
+  letter-spacing: 0.02em;
 }
 
 /* メインメッセージ */
 .footer-cta-message {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
 .footer-cta-title {
@@ -1008,12 +1094,14 @@ a:hover { text-decoration: underline; }
 
 /* コンテンツエリア */
 .footer-cta-content {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  max-width: 1000px;
+  justify-content: center;
   margin: 0 auto;
+  gap: 10px;
+  max-width: 100%;
+  text-align: center;
 }
 
 /* スタッフ画像 */
@@ -1035,6 +1123,11 @@ a:hover { text-decoration: underline; }
 /* 連絡先情報 */
 .footer-cta-contact {
   color: #fff;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer-contact-lead {
@@ -1042,6 +1135,7 @@ a:hover { text-decoration: underline; }
   font-weight: 700;
   margin: 0 0 20px;
   text-align: center;
+  width: 100%;
 }
 
 .footer-contact-badge {
@@ -1051,10 +1145,10 @@ a:hover { text-decoration: underline; }
   font-weight: 700;
   padding: 8px 16px;
   border-radius: 6px;
-  display: inline-block;
-  margin-bottom: 16px;
+  display: block;
+  margin: 0 auto 16px auto;
   text-align: center;
-  width: 100%;
+  width: auto;
 }
 
 .footer-phone-number {
@@ -1062,7 +1156,8 @@ a:hover { text-decoration: underline; }
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 24px;
+  margin: 0 auto 24px auto;
+  width: 100%;
 }
 
 .footer-phone-icon {
